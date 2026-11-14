@@ -1,6 +1,6 @@
 # DevOps Journey
 
-A practical learning hub for understanding how code moves from development to production. Explore concise explanations of DevOps tools and practices, with hands-on starting points and links to official resources.
+A practical learning hub for understanding how code moves from development to production. Explore concise explanations of DevOps tools and practices, with hands-on starting points and links to official resources. The site is served by a small Flask application with sample API routes.
 
 ## Topics
 
@@ -15,7 +15,7 @@ python -m pip install -r requirements-dev.txt
 python app\main.py
 ```
 
-Run `python app\main.py` from the project folder whenever you want to start the app. Open [http://127.0.0.1:8000](http://127.0.0.1:8000) in your browser. Search and filter learning modules, or mark topics complete to track progress in your browser.
+Run `python app\main.py` from the project folder whenever you want to start the app. Open [http://127.0.0.1:8000](http://127.0.0.1:8000) in your browser. Search and filter learning modules, or mark topics complete to track progress in your browser. The interactive Flask development server stops with `Ctrl+C`.
 
 ## Test
 
