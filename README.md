@@ -12,10 +12,10 @@ Git, CI/CD, GitHub Actions, Docker, Kubernetes, Terraform, Helm, Argo CD, ingres
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 python -m pip install -r requirements-dev.txt
-uvicorn app.main:app --reload
+python main.py
 ```
 
-Open [http://127.0.0.1:8000](http://127.0.0.1:8000). Search and filter learning modules, or mark topics complete to track progress in your browser.
+Run `python main.py` whenever you want to start the app. Open [http://127.0.0.1:8000](http://127.0.0.1:8000) in your browser. Search and filter learning modules, or mark topics complete to track progress in your browser.
 
 ## Test
 
