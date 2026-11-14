@@ -5,15 +5,20 @@ from app.main import app
 client = TestClient(app)
 
 
-def test_root_has_welcome_and_useful_links() -> None:
+def test_root_serves_learning_hub() -> None:
     response = client.get("/")
 
     assert response.status_code == 200
-    assert response.json() == {
-        "message": "Welcome to the DevOps Journey API",
-        "docs": "/docs",
-        "health": "/health",
-    }
+    assert "text/html" in response.headers["content-type"]
+    assert "mapped out." in response.text
+    assert "/static/styles.css" in response.text
+
+
+def test_learning_hub_styles_are_served() -> None:
+    response = client.get("/static/styles.css")
+
+    assert response.status_code == 200
+    assert "text/css" in response.headers["content-type"]
 
 
 def test_health_check() -> None:

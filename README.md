@@ -1,6 +1,8 @@
-# DevOps Journey API
+# DevOps Journey
 
-A small Python API to use as the application for an end-to-end DevOps project. It includes a health endpoint and a versioned item API. Containerization, Kubernetes, Helm, GitHub Actions, and Argo CD are intentionally left for the DevOps implementation phase.
+A beginner-friendly learning hub that explains how code moves from a developer's laptop to production. Each module introduces **what** a tool does, **why** teams use it, a practical **first step**, and links to official documentation or recognized DevOps research.
+
+The learning path covers Git and collaboration, CI/CD with GitHub Actions, Docker and multi-stage builds, Kubernetes, cluster planning and Terraform, Helm, GitOps with Argo CD, ingress and traffic routing, DNS, observability with Prometheus, security, and an end-to-end delivery walkthrough.
 
 ## Run locally
 
@@ -11,16 +13,17 @@ python -m pip install -r requirements-dev.txt
 uvicorn app.main:app --reload
 ```
 
-The API is available at `http://127.0.0.1:8000`. Interactive API documentation is at `http://127.0.0.1:8000/docs`.
+Open `http://127.0.0.1:8000` for the learning hub. Use the search field or topic filters to explore modules, and mark modules complete to track progress in your browser.
 
-## Endpoints
+## API and docs
 
 | Method | Path | Purpose |
 | --- | --- | --- |
-| `GET` | `/` | Welcome message and useful links |
+| `GET` | `/` | DevOps learning hub |
 | `GET` | `/health` | Health check |
-| `GET` | `/api/v1/items` | List sample items |
+| `GET` | `/api/v1/items` | List sample API items |
 | `GET` | `/api/v1/items/{item_id}` | Get an item by ID; returns `404` when missing |
+| `GET` | `/docs` | Interactive OpenAPI documentation |
 
 ## Run tests
 
