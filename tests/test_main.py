@@ -1,6 +1,6 @@
 from fastapi.testclient import TestClient
 
-from main import app
+from app.main import app
 
 client = TestClient(app)
 
@@ -12,6 +12,15 @@ def test_root_serves_learning_hub() -> None:
     assert "text/html" in response.headers["content-type"]
     assert "mapped out." in response.text
     assert "/static/styles.css" in response.text
+    assert response.text.count('class="module-card"') == 12
+
+
+def test_learning_hub_javascript_is_served() -> None:
+    response = client.get("/static/app.js")
+
+    assert response.status_code == 200
+    assert "javascript" in response.headers["content-type"]
+    assert "filterCards" in response.text
 
 
 def test_learning_hub_styles_are_served() -> None:

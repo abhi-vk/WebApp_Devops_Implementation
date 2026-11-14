@@ -1,4 +1,5 @@
 from pathlib import Path
+import sys
 
 import uvicorn
 from fastapi import FastAPI, HTTPException
@@ -6,7 +7,11 @@ from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 
-STATIC_DIR = Path(__file__).parent / "app" / "static"
+PROJECT_DIR = Path(__file__).resolve().parent.parent
+if str(PROJECT_DIR) not in sys.path:
+    sys.path.insert(0, str(PROJECT_DIR))
+
+STATIC_DIR = Path(__file__).parent / "static"
 
 app = FastAPI(
     title="DevOps Journey",
@@ -52,4 +57,4 @@ def get_item(item_id: int) -> Item:
 
 
 if __name__ == "__main__":
-    uvicorn.run("main:app", host="127.0.0.1", port=8000, reload=True)
+    uvicorn.run("app.main:app", host="127.0.0.1", port=8000, reload=True)
